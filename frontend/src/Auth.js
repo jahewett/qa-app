@@ -5,7 +5,7 @@ class Auth {
         this.auth0 = new auth0.WebAuth({
             domain: 'jahew-dev.eu.auth0.com',
             audience: 'https://jahew-dev.eu.auth0.com/userinfo',
-            clientId: 'F10XLFz4szoTK8VzKI2dDjMZv6YJLHoe',
+            clientID: 'F10XLFz4szoTK8VzKI2dDjMZv6YJLHoe',
             redirectUri: 'http://localhost:3000/callback',
             responseType: 'id_token',
             scope: 'openid profile'
@@ -27,7 +27,7 @@ class Auth {
     }
 
     isAuthenticated() {
-        return new date().getTime() < this.expiresAt;
+        return new Date().getTime() < this.expiresAt;
     }
 
     signIn() {
