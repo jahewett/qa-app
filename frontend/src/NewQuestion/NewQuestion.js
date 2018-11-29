@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {Component} from 'react';
 import {withRouter} from 'react-router-dom';
 import auth0Client from '../Auth';
 import axios from 'axios';
@@ -35,7 +35,7 @@ class NewQuestion extends Component {
             title: this.state.title,
             description: this.state.description,
         }, {
-            headers: {'Authorization': 'Bearer ${auth0Client.getIdToken()}'}
+            headers: { 'Authorization': `Bearer ${auth0Client.getIdToken()}` }
         });
 
         this.props.history.push('/');
