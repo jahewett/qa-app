@@ -34,6 +34,7 @@ app.get('/', (req, res) => {
         description: q.description,
         answers: q.answers.length,
     }));
+
     res.send(qs);
 });
 
@@ -83,9 +84,8 @@ app.post('/', checkJwt, (req, res) => {
 }); 
 
 // insert a new answer to a question
-app.post('answer/:id', checkJwt, (req, res) => {
+app.post('/answer/:id', checkJwt, (req, res) => {
     const {answer} = req.body;
-
     const question = questions.filter(q => (q.id === parseInt(req.params.id)));
     
     if(question.length > 1) {
